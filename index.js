@@ -135,7 +135,10 @@ export const useQiblaCompass = () => {
 };
 
 const QiblaCompass = forwardRef(
-  ({ backgroundColor = "#fff", color = "#468773" }, ref) => {
+  (
+    { backgroundColor = "transparent", color = "#000", textStyles = {} },
+    ref
+  ) => {
     const {
       qiblad,
       compassDirection,
@@ -175,16 +178,17 @@ const QiblaCompass = forwardRef(
               textAlign: "center",
               paddingHorizontal: 20,
               fontSize: moderateScale(16, 0.25),
+              ...textStyles,
             }}
           >
             Error: {error}
           </Text>
         )}
         <View style={styles.direction}>
-          <Text style={[styles.directionText, { color }]}>
+          <Text style={[styles.directionText, { color, ...textStyles }]}>
             {compassDirection}
           </Text>
-          <Text style={[styles.directionText, { color }]}>
+          <Text style={[styles.directionText, { color, ...textStyles }]}>
             {compassDegree}°
           </Text>
         </View>
@@ -245,7 +249,7 @@ const QiblaCompass = forwardRef(
               height: moderateScale(35, 0.25),
             }}
           />
-          <Text style={[styles.directionText, { color }]}>
+          <Text style={[styles.directionText, { color, ...textStyles }]}>
             {qiblad.toFixed(2)}
           </Text>
         </View>
@@ -257,6 +261,7 @@ const QiblaCompass = forwardRef(
 QiblaCompass.propTypes = {
   backgroundColor: PropTypes.string,
   color: PropTypes.string,
+  textStyles: PropTypes.object,
 };
 
 const styles = StyleSheet.create({

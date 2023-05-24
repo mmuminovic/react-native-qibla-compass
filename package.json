@@ -1,6 +1,6 @@
 {
   "name": "react-native-qibla-compass",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "description": "Qibla Compass component for React Native apps",
   "main": "index.js",
   "scripts": {
