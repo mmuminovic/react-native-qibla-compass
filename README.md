@@ -75,7 +75,7 @@ The `useQiblaCompass` hook returns an object with the following properties:
 - `kabaRotate` (number): The Kaaba icon rotation angle in degrees.
 - `error` (string): An error message, if any.
 - `isLoading` (boolean): Indicates if the compass data is still loading.
-- `reinitCompass` (function): A function to initialize the Qibla Compass.
+- `reinitCompass` (function): A function to reinitialize the Qibla Compass.
 
 ## Contributing
 
