@@ -6,7 +6,7 @@ React Native Qibla Compass is a JavaScript library that provides a simple and ea
 
 You can install React Native Qibla Compass via NPM:
 
-```npm install react-native-qibla-compass```
+`npm install react-native-qibla-compass`
 
 ## Usage
 
@@ -28,16 +28,25 @@ export default function App() {
   // Rest of your code
 }
 ```
+
 or
+
 ```javascript
 import QiblaCompass from "react-native-qibla-compass";
 
 export default function App() {
-  return <QiblaCompass />;
+  return (
+    <QiblaCompass
+      color={"#123"}
+      backgroundColor={"#fff"}
+      textStyles={{ textAlign: "center", fontSize: 24 }}
+    />
+  );
 }
 ```
 
 If you want to reinit qibla compass, you can do it on this way:
+
 ```javascript
 import { useRef } from "react";
 import QiblaCompass from "react-native-qibla-compass";
@@ -58,6 +67,7 @@ export default function App() {
 ### `useQiblaCompass()`
 
 The `useQiblaCompass` hook returns an object with the following properties:
+
 - `qiblad` (number): The Qibla angle in degrees.
 - `compassDirection` (string): The compass direction (e.g., "NE", "E", "SE").
 - `compassDegree` (number): The compass angle in degrees.
@@ -69,7 +79,7 @@ The `useQiblaCompass` hook returns an object with the following properties:
 
 ## Contributing
 
-Contributions are welcome! If you find any issues or have suggestions for improvements, please feel free to create a pull request or open an issue in the repository.
+Contributions are welcome! If you find any issues or have suggestions for improvements, please feel free to create a pull request or open an issue in the [Github repository](https://github.com/mmuminovic/react-native-qibla-compass).
 
 ## License
 
