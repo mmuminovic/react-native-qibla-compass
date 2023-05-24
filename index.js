@@ -130,7 +130,7 @@ export const useQiblaCompass = () => {
     kabaRotate,
     error,
     isLoading,
-    initCompass,
+    reinitCompass: initCompass,
   };
 };
 
@@ -147,14 +147,14 @@ const QiblaCompass = forwardRef(
       kabaRotate,
       error,
       isLoading,
-      initCompass,
+      reinitCompass,
     } = useQiblaCompass();
 
     useImperativeHandle(
       ref,
       () => {
         return {
-          reinitCompass: initCompass,
+          reinitCompass,
         };
       },
       []
