@@ -1,7 +1,7 @@
 {
   "name": "react-native-qibla-compass",
-  "version": "1.1.1",
-  "description": "Qibla Compass component for React Native apps",
+  "version": "1.1.2",
+  "description": "Qibla Compass component and hook for React Native apps",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"

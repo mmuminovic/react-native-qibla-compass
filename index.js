@@ -206,9 +206,10 @@ const QiblaCompass = forwardRef(
               {
                 transform: [
                   {
-                    rotate: compassRotate + "deg",
+                    rotate: 360 - degree(magnetometer) + "deg",
                   },
                 ],
+                zIndex: 100,
               },
             ]}
           />
@@ -220,12 +221,13 @@ const QiblaCompass = forwardRef(
               alignSelf: "center",
               transform: [
                 {
-                  rotate: `${kabaRotate}deg`,
+                  rotate: `${360 - (degree(magnetometer) - qiblad)}deg`,
                 },
               ],
               flexDirection: "row",
               justifyContent: "center",
               zIndex: 999,
+              elevation: 999,
             }}
           >
             <Image
@@ -236,7 +238,7 @@ const QiblaCompass = forwardRef(
                 paddingBottom: 150,
                 marginTop: 20,
                 width: 60,
-                zIndex: 999,
+                zIndex: 1000,
               }}
             />
           </View>
