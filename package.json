@@ -22,13 +22,13 @@
   "author": "Muhamed Muminovic",
   "license": "ISC",
   "peerDependencies": {
-    "expo": "^47.0.0",
-    "expo-location": "~15.0.1",
-    "expo-sensors": "~12.0.1",
-    "expo-status-bar": "~1.4.2",
+    "expo": "^50.0.14",
+    "expo-location": "~16.5.5",
+    "expo-sensors": "~12.9.1",
+    "expo-status-bar": "~1.11.1",
     "prop-types": "^15.8.1",
-    "react": "18.1.0",
-    "react-native": "0.70.5",
+    "react": "18.2.0",
+    "react-native": "0.73.6",
     "react-native-size-matters": "^0.4.0"
   },
   "repository": {
