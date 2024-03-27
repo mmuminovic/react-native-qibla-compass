@@ -1,9 +1,10 @@
 {
   "name": "react-native-qibla-compass",
-  "version": "1.1.2",
+  "version": "1.2.0",
   "description": "Qibla Compass component and hook for React Native apps",
   "main": "index.js",
   "scripts": {
+    "lint": "eslint . --ext .js,.jsx --ignore-path .gitignore --fix --max-warnings 0",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [
@@ -21,7 +22,7 @@
   ],
   "author": "Muhamed Muminovic",
   "license": "ISC",
-  "peerDependencies": {
+  "dependencies": {
     "expo": "^50.0.14",
     "expo-location": "~16.5.5",
     "expo-sensors": "~12.9.1",
@@ -34,5 +35,10 @@
   "repository": {
     "type": "git",
     "url": "https://github.com/mmuminovic/react-native-qibla-compass"
+  },
+  "devDependencies": {
+    "eslint": "^8.57.0",
+    "eslint-config-universe": "^12.0.0",
+    "prettier": "^3.2.5"
   }
 }
