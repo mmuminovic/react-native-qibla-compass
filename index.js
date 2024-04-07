@@ -112,7 +112,7 @@ export const useQiblaCompass = () => {
             Math.atan2(
                 Math.sin(longk - lambda),
                 Math.cos(phi) * Math.tan(latk) -
-                    Math.sin(phi) * Math.cos(longk - lambda)
+                Math.sin(phi) * Math.cos(longk - lambda)
             );
         setQiblad(qiblad);
     };
@@ -136,7 +136,7 @@ export const useQiblaCompass = () => {
 
 const QiblaCompass = forwardRef(
     (
-        { backgroundColor = 'transparent', color = '#000', textStyles = {} },
+        { backgroundColor = 'transparent', color = '#000', textStyles = {}, compassImage, kaabaImage },
         ref
     ) => {
         const {
@@ -204,7 +204,7 @@ const QiblaCompass = forwardRef(
                     }}
                 >
                     <Image
-                        source={require('./assets/compass.png')}
+                        source={compassImage || require('./assets/compass.png')}
                         style={[
                             styles.image,
                             {
@@ -235,7 +235,7 @@ const QiblaCompass = forwardRef(
                         }}
                     >
                         <Image
-                            source={require('./assets/kaba.png')}
+                            source={kaabaImage || require('./assets/kaba.png')}
                             style={{
                                 resizeMode: 'center',
                                 height: 100,
