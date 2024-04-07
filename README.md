@@ -37,9 +37,11 @@ import QiblaCompass from "react-native-qibla-compass";
 export default function App() {
   return (
     <QiblaCompass
-      color={"#123"}
-      backgroundColor={"#fff"}
-      textStyles={{ textAlign: "center", fontSize: 24 }}
+      color={"#123"} // optional
+      backgroundColor={"#fff"} // optional
+      textStyles={{ textAlign: "center", fontSize: 24 }} // optional
+      kaabaImage={require('./assests/kaaba.png')} // optional
+      compassImage={require('./assets/compass.png')} // optional
     />
   );
 }

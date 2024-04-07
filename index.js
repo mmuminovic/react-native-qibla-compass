@@ -235,13 +235,11 @@ const QiblaCompass = forwardRef(
                         }}
                     >
                         <Image
-                            source={kaabaImage || require('./assets/kaba.png')}
+                            source={kaabaImage || require('./assets/kaaba.png')}
                             style={{
                                 resizeMode: 'center',
                                 height: 100,
-                                paddingBottom: 150,
-                                marginTop: 20,
-                                width: 60,
+                                width: 40,
                                 zIndex: 1000,
                             }}
                         />
@@ -270,6 +268,8 @@ QiblaCompass.propTypes = {
     backgroundColor: PropTypes.string,
     color: PropTypes.string,
     textStyles: PropTypes.object,
+    compassImage: PropTypes.any,
+    kaabaImage: PropTypes.any,
 };
 
 const styles = StyleSheet.create({
