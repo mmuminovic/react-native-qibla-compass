@@ -247,7 +247,7 @@ const QiblaCompass = forwardRef(
                 </View>
                 <View style={styles.qiblaDirection}>
                     <Image
-                        source={require('./assets/kaaba.png')}
+                        source={kaabaImage || require('./assets/kaaba.png')}
                         style={{
                             width: moderateScale(35, 0.25),
                             height: moderateScale(35, 0.25),
