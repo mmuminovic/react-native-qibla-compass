@@ -35,56 +35,71 @@ cd ios && pod install && cd ..
 ## Usage
 
 ```javascript
-import { useQiblaCompass } from "react-native-qibla-compass";
+import { useQiblaCompass } from 'react-native-qibla-compass';
 
 export default function App() {
-  const {
-    qiblad,
-    compassDirection,
-    compassDegree,
-    compassRotate,
-    kabaRotate,
-    error,
-    isLoading,
-    reinitCompass,
-  } = useQiblaCompass();
+    const {
+        qiblad,
+        compassDirection,
+        compassDegree,
+        compassRotate,
+        kabaRotate,
+        isFacingQibla,
+        error,
+        isLoading,
+        reinitCompass,
+    } = useQiblaCompass();
 
-  // Rest of your code
+    // Rest of your code
 }
+```
+
+The hook accepts an optional options object:
+
+```javascript
+const { ... } = useQiblaCompass({
+  updateInterval: 100, // magnetometer update interval in ms (default 100)
+  smoothingFactor: 0.15, // 0..1 needle smoothing; 0 disables (default 0.15)
+  alignTolerance: 5, // degrees within which `isFacingQibla` is true (default 5)
+});
 ```
 
 or
 
 ```javascript
-import QiblaCompass from "react-native-qibla-compass";
+import QiblaCompass from 'react-native-qibla-compass';
 
 export default function App() {
-  return (
-    <QiblaCompass
-      color={"#123"} // optional
-      backgroundColor={"#fff"} // optional
-      textStyles={{ textAlign: "center", fontSize: 24 }} // optional
-      kaabaImage={require('./assets/kaaba.png')} // optional
-      compassImage={require('./assets/compass.png')} // optional
-    />
-  );
+    return (
+        <QiblaCompass
+            color={'#123'} // optional
+            backgroundColor={'#fff'} // optional
+            textStyles={{ textAlign: 'center', fontSize: 24 }} // optional
+            kaabaImage={require('./assets/kaaba.png')} // optional
+            compassImage={require('./assets/compass.png')} // optional
+            size={300} // optional
+            alignColor={'#2e8b57'} // optional — color shown when facing the Qibla
+            enableHaptics // optional — requires expo-haptics
+            onAligned={() => console.log('Facing the Qibla')} // optional
+        />
+    );
 }
 ```
 
 If you want to reinit qibla compass, you can do it on this way:
 
 ```javascript
-import { useRef } from "react";
-import QiblaCompass from "react-native-qibla-compass";
+import { useRef } from 'react';
+import QiblaCompass from 'react-native-qibla-compass';
 
 export default function App() {
-  const qiblaCompassRef = useRef();
+    const qiblaCompassRef = useRef();
 
-  const reinitCompass = () => {
-    qiblaCompassRef.current.reinitCompass();
-  };
+    const reinitCompass = () => {
+        qiblaCompassRef.current.reinitCompass();
+    };
 
-  return <QiblaCompass ref={qiblaCompassRef} />;
+    return <QiblaCompass ref={qiblaCompassRef} />;
 }
 ```
 
@@ -99,19 +114,29 @@ The `useQiblaCompass` hook returns an object with the following properties:
 - `compassDegree` (number): The compass angle in degrees.
 - `compassRotate` (number): The compass rotation angle in degrees.
 - `kabaRotate` (number): The Kaaba icon rotation angle in degrees.
+- `isFacingQibla` (boolean): `true` when the device is pointing at the Qibla (within `alignTolerance`).
 - `error` (string): An error message, if any.
 - `isLoading` (boolean): Indicates if the compass data is still loading.
 - `reinitCompass` (function): A function to reinitialize the Qibla Compass.
 
 ### `<QiblaCompass />`
 
-| Prop | Type | Default | Description |
-|------|------|---------|-------------|
-| `backgroundColor` | string | `'transparent'` | Background color of the compass container |
-| `color` | string | `'#000'` | Text color |
-| `textStyles` | object | `{}` | Additional text styles |
-| `compassImage` | ImageSource | Built-in image | Custom compass image |
-| `kaabaImage` | ImageSource | Built-in image | Custom Kaaba image |
+| Prop              | Type        | Default         | Description                                                |
+| ----------------- | ----------- | --------------- | ---------------------------------------------------------- |
+| `backgroundColor` | string      | `'transparent'` | Background color of the compass container                  |
+| `color`           | string      | `'#000'`        | Text color                                                 |
+| `textStyles`      | object      | `{}`            | Additional text styles                                     |
+| `compassImage`    | ImageSource | Built-in image  | Custom compass image                                       |
+| `kaabaImage`      | ImageSource | Built-in image  | Custom Kaaba image                                         |
+| `size`            | number      | `300`           | Diameter of the compass dial                               |
+| `updateInterval`  | number      | `100`           | Magnetometer update interval (ms)                          |
+| `smoothingFactor` | number      | `0.15`          | Needle smoothing `0..1`; `0` disables it                   |
+| `alignTolerance`  | number      | `5`             | Degrees within which the device counts as facing the Qibla |
+| `alignColor`      | string      | `'#2e8b57'`     | Qibla text color shown when facing the Qibla               |
+| `enableHaptics`   | bool        | `false`         | Fire a haptic when aligned (requires `expo-haptics`)       |
+| `onAligned`       | function    | —               | Called once each time the device starts facing the Qibla   |
+
+All new props are optional and backwards-compatible — existing usage keeps working unchanged.
 
 ## Permissions
 

@@ -1,46 +1,52 @@
 {
-  "name": "react-native-qibla-compass",
-  "version": "1.4.0",
-  "description": "Qibla Compass component and hook for React Native apps. Works with both Expo and React Native CLI projects.",
-  "main": "index.js",
-  "files": [
-    "index.js",
-    "assets/"
-  ],
-  "scripts": {
-    "lint": "eslint . --ext .js,.jsx --ignore-path .gitignore --fix --max-warnings 0"
-  },
-  "keywords": [
-    "qibla",
-    "compass",
-    "react-native",
-    "expo",
-    "islamic",
-    "prayer",
-    "mecca",
-    "kaaba",
-    "direction",
-    "magnetometer"
-  ],
-  "author": "Muhamed Muminovic",
-  "license": "ISC",
-  "dependencies": {
-    "prop-types": "^15.8.1",
-    "react-native-size-matters": "^0.4.0"
-  },
-  "peerDependencies": {
-    "react": ">=16.8.0",
-    "react-native": ">=0.60.0",
-    "expo-location": ">=14.0.0",
-    "expo-sensors": ">=11.0.0"
-  },
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/mmuminovic/react-native-qibla-compass"
-  },
-  "devDependencies": {
-    "eslint": "^8.57.0",
-    "eslint-config-universe": "^12.0.0",
-    "prettier": "^3.2.5"
-  }
+    "name": "react-native-qibla-compass",
+    "version": "1.4.0",
+    "description": "Qibla Compass component and hook for React Native apps. Works with both Expo and React Native CLI projects.",
+    "main": "index.js",
+    "files": [
+        "index.js",
+        "assets/"
+    ],
+    "scripts": {
+        "lint": "eslint . --ext .js,.jsx --ignore-path .gitignore --fix --max-warnings 0"
+    },
+    "keywords": [
+        "qibla",
+        "compass",
+        "react-native",
+        "expo",
+        "islamic",
+        "prayer",
+        "mecca",
+        "kaaba",
+        "direction",
+        "magnetometer"
+    ],
+    "author": "Muhamed Muminovic",
+    "license": "ISC",
+    "dependencies": {
+        "prop-types": "^15.8.1",
+        "react-native-size-matters": "^0.4.0"
+    },
+    "peerDependencies": {
+        "react": ">=16.8.0",
+        "react-native": ">=0.60.0",
+        "expo-location": ">=14.0.0",
+        "expo-sensors": ">=11.0.0",
+        "expo-haptics": ">=11.0.0"
+    },
+    "peerDependenciesMeta": {
+        "expo-haptics": {
+            "optional": true
+        }
+    },
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/mmuminovic/react-native-qibla-compass"
+    },
+    "devDependencies": {
+        "eslint": "^8.57.0",
+        "eslint-config-universe": "^12.0.0",
+        "prettier": "^3.2.5"
+    }
 }
